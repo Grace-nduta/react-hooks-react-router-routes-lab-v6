@@ -1,13 +1,24 @@
-import { useEffect, useState } from "react";
+import MovieCard from "../components/MovieCard"
+import NavBar from "../components/NavBar";
 
 function Home() {
+  const movies = [
+    { id: 1, title: "Doctor Strange" },
+    { id: 2, title: "The Dark Knight" },
+    { id: 3, title: "Interstellar" },
+  ];
   return (
     <>
       <header>
-        {/* What component should go here? */}
+      <NavBar />
       </header>
       <main>
-        {/* Info goes here! */}
+      <h1>Home Page</h1>
+        <div className="movie-list">
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} title={movie.title} id={movie.id} />
+          ))}
+        </div>
       </main>
     </>
   );
